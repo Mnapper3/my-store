@@ -1,0 +1,22 @@
+<h1>Your Order shipped</h1>
+
+<h3>Dear, <%= @order.name %></h3>
+
+<p>
+  We've shipped your order!
+</p>
+
+<p>You order details:</p>
+
+<%= @order.product_items.each do |item| %>
+    <ul>
+        <li>
+            <%= item.product.title %>&times;<%= item.quantity %>
+        </li>
+        <li>
+            <%= number_to_currency item.total_price %>
+        </li>
+    </ul>
+<% end %>
+
+<p>Thank You!</p>
